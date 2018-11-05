@@ -5,7 +5,6 @@ window.blog = blog
 window.auth = auth
 window.request = request
 
-
 export default {
   name: 'Index',
   data() {

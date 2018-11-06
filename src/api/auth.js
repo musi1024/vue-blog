@@ -17,7 +17,7 @@ export default {
     logout() {
         return request(Url.Logout)
     },  
-    getinfo() {
+    getInfo() {
         return request(Url.GetInfo)
-    }
+    }       
 }

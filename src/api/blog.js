@@ -9,10 +9,16 @@ const Url = {
 }
 
 export default {
-    getlist({page=1, userId, atIndex} = {page: 1}) {
+    getAll({page=1, userId, atIndex} = {page: 1}) {
         return request(Url.GetList, 'GET', {page, userId, atIndex})
     },
-    getdetail({blogId}) {
+    getIndex({ page=1 } = { page: 1}) {
+        return this.getAll({ page, atIndex: true })
+    },
+    getByUserId(userId, { page=1, atIndex } = { page: 1}) {
+        return this.getAll({ userId, page, atIndex })
+    },
+    getDetail({blogId}) {
         return request(Url.GetDetail.replace(':blogId', blogId))
     },
     create({ title = '', content = '', description = '', atIndex = false} = { title: '', content: '', description: '', atIndex: false}) {

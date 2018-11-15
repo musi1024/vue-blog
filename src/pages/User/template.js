@@ -31,6 +31,14 @@ export default {
         this.page = res.page
         this.$router.push({ path: `/user/${this.userId}`, query: { page: newPage}})  
       })
+    },
+    splitDate(dataStr) {
+      let dateObj = typeof dataStr === 'object' ? dataStr : new Date(dataStr)
+      return {
+        date: dateObj.getDate(),
+        month: dateObj.getMonth() + 1,
+        year: dateObj.getFullYear()
+      }
     }
   }
 }

@@ -9,7 +9,6 @@ export default {
       page: 1
     }
   },
-
   created() {
     this.page = parseInt(this.$route.query.page) || 1
     blog.getIndex({ page: this.page }).then((res) => {

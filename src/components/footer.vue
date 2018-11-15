@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>© musi1024 2018 wechat: yauck12345</p>
+    <p>©musi 2018 https://github.com/musi1024 wechat: yauck12345</p>
   </footer>
 </template>
 

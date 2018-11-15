@@ -1,17 +1,15 @@
 <template>
   <div id="detail">
     <section class="user-info"> 
-      <router-link to="/user" class="avatar">
-          <img src="http://cn.gravatar.com/avatar/1?s=128&d=identicon" alt="">
+      <router-link :to="`/user/${user.id}`" class="avatar">
+        <img :src="user.avatar" :alt="user.username" :title="user.username" class="avatar">
       </router-link>  
-      <h3>前端异步大揭秘</h3>
+      <h3>{{title}}</h3>
       <p>
-        <router-link to="/user">若愚</router-link>  发布于3天前
+        <router-link :to="`/user/${user.id}`">{{user.username}}</router-link>  发布于{{createdAt}}
       </p>
     </section>
-    <section class="article">
-        
-    </section>
+    <section class="article" v-html="markdown"></section>
   </div>
 </template>
 

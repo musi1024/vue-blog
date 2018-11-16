@@ -7,14 +7,21 @@
           <figcaption>{{blog.user.username}}</figcaption>
         </figure>
         <h3>
-          <router-link  :to="`/detail/${blog.id}`">{{blog.title}}</router-link>
+          <router-link :to="`/detail/${blog.id}`">{{blog.title}}</router-link>
           <span> 发布于{{friendlyDate(blog.createdAt)}}</span>
         </h3>
-        <p><router-link  :to="`/detail/${blog.id}`">{{blog.description}}</router-link></p>
+        <p>
+          <router-link :to="`/detail/${blog.id}`">{{blog.description}}</router-link>
+        </p>
       </div>
     </section>
     <section class="pagination">
-      <el-pagination background layout="prev, pager, next" :total="total" :current-page="page" @current-change="onPageChange">
+      <el-pagination 
+        background 
+        layout="prev, pager, next" 
+        :total="total" 
+        :current-page.sync="page" 
+        @current-change="onPageChange">
       </el-pagination>
     </section>
   </div>

@@ -17,9 +17,10 @@
     </section>
     <section class="pagination">
       <el-pagination 
+        background
         layout="prev, pager, next" 
         :total="total" 
-        :current-page="page" 
+        :current-page.sync="page" 
         @current-change="onPageChange">
       </el-pagination>
     </section>

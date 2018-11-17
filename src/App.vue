@@ -47,13 +47,12 @@
   }
   @media (max-width: 768px) {
   #app {
-    grid-template-columns: 10px auto 10px;
+    grid-template-columns: 8% auto 8%;
     #header, #footer {
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 8%;
+      padding-right: 8%;
     }
   }
-
 }
 
 </style>

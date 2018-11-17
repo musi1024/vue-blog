@@ -20,6 +20,7 @@
         background 
         layout="prev, pager, next" 
         :total="total" 
+        :pager-count="5"
         :current-page.sync="page" 
         @current-change="onPageChange">
       </el-pagination>

@@ -15,7 +15,7 @@
   }
 
   input {
-    width: 400px;
+    width: 30em;
     margin-bottom: 5px;
   }
 
@@ -26,7 +26,6 @@
 
   button {
     margin-top: 20px;
-    justify-self: start;
   }
 
   .notice {
@@ -37,6 +36,12 @@
 
     a {
       color: @themeColor;
+    }
+  }
+  @media (max-width: 768px) {
+    justify-content: unset;
+    input {
+      width: 100%;
     }
   }
 }

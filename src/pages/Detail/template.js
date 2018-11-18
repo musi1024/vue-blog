@@ -1,14 +1,17 @@
 import marked from "marked"
 import blog from '@/api/blog'
+import {
+  mapGetters,
+} from 'vuex'
 
 export default {
   name: 'Detail',
   data() {
     return {
       title: "",       
-      user: {}, 
       content: "",
-      createdAt: ""
+      createdAt: "",
+      otherUser: {},
     }
   },
   created () {
@@ -18,10 +21,18 @@ export default {
       this.title = res.data.title
       this.content = res.data.content
       this.createdAt = res.data.createdAt
-      this.user = res.data.user
+      this.otherUser = res.data.user
     })
   },
-  computed: {
+  computed: { 
+    ...mapGetters(['user']),
+    routerTo() {
+      if (this.user && this.user.id === this.otherUser.id) {
+        return 'my'
+      } else {
+        return  `user/${this.otherUser.id}`
+      }
+    },
     markdown() {
       return marked(this.content)
     }

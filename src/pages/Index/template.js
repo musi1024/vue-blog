@@ -1,4 +1,5 @@
 import blog from '@/api/blog'
+import {mapGetters} from 'vuex'
 
 export default {
   name: 'Index',
@@ -25,6 +26,16 @@ export default {
         this.page = res.page
         this.$router.push({ path: '/', query: { page: newPage}})  
       })
+    },
+    toUser(id) {
+      if (this.user && this.user.id === id) {
+        this.$router.push({ path: '/my'})
+      } else {
+        this.$router.push({ path: `/user/${id}`})
+      }
     }
+  },
+  computed: {
+    ...mapGetters(['user']),
   }
 }

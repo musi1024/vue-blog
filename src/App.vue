@@ -47,7 +47,7 @@
   }
   @media (max-width: 768px) {
     #app {
-      grid-template-columns: 8% auto 8%;
+      grid-template-columns: 8% 84% 8%;
       #header, #footer {
         padding-left: 10px;
         padding-right: 10px;

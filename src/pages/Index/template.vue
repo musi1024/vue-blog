@@ -2,9 +2,9 @@
   <div id="index">
     <section class="blog-posts">
       <div class="item" v-for="blog in blogs" :key="blog.id">
-        <figure class="avatar">
-          <img :src="blog.user.avatar" :alt="blog.user.username">
-          <figcaption>{{blog.user.username}}</figcaption>
+        <figure class="avatar" @click="toUser(blog.user.id)">
+            <img :src="blog.user.avatar" :alt="blog.user.username">
+            <figcaption>{{blog.user.username}}</figcaption>
         </figure>
         <h3>
           <router-link :to="`/detail/${blog.id}`">{{blog.title}}</router-link>

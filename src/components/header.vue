@@ -1,31 +1,47 @@
 <template>
   <header :class="{login: isLogin, 'no-login': !isLogin}">
     <template v-if="!isLogin">
-      <h1><router-link to="/">Let's share</router-link></h1>
+      <h1>
+        <router-link to="/">Let's share</router-link>
+      </h1>
       <p>精品博客汇聚</p>
       <div class="btns">
-        <router-link to="/login"><el-button >立即登录</el-button></router-link>
-        <router-link to="/register"><el-button>注册账号</el-button></router-link>
+        <router-link to="/login">
+          <el-button>立即登录</el-button>
+        </router-link>
+        <router-link to="/register">
+          <el-button>注册账号</el-button>
+        </router-link>
       </div>
     </template>
     <template v-if="isLogin">
-      <h1><router-link to="/">Let's share</router-link></h1>
-      <router-link to="/create">
-        <i class="edit el-icon-plus"></i>
-      </router-link>
-      <div class="user">
-        <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username">
-        <ul>
-          <li><router-link to="/my">我的</router-link></li>
-          <li><a href="#" @click="onLogout">注销</a></li>
-        </ul>
-      </div>
+      <h1>
+        <router-link to="/">Let's share</router-link>
+      </h1>
+      <el-dropdown trigger="click">
+        <div class="el-dropdown-link">
+          <span>{{user.username}}<i class="el-icon-arrow-down el-icon--right"></i></span>
+          <div class="menu"></div>
+        </div>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>
+            <router-link to="/my">我的博客</router-link>
+          </el-dropdown-item>
+          <el-dropdown-item>
+            <router-link to="/create">新建博客</router-link>
+          </el-dropdown-item>
+          <el-dropdown-item><a href="#" @click="onLogout">退出登录</a></el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
     </template>
   </header>
 </template>
 
 <script>
-  import { mapGetters, mapActions } from 'vuex'
+  import {
+    mapGetters,
+    mapActions
+  } from 'vuex'
 
   export default {
     data() {
@@ -44,12 +60,13 @@
       ...mapActions([
         'checkLogin',
         'logout'
-        ]),
+      ]),
       onLogout() {
         this.logout()
       }
     }
   }
+
 </script>
 
 <style lang="less">
@@ -72,7 +89,7 @@
       margin: 15px 0 0 0;
       color: #fff;
     }
-    
+
     .btns {
       margin-top: 20px;
     }
@@ -80,12 +97,12 @@
     button {
       margin: 20px 5px 0;
     }
-  } 
-
+  }
 
   header.login {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background: @bgColor;
 
     h1 {
@@ -94,52 +111,54 @@
       color: #fff;
       font-size: 40px;
       text-transform: uppercase;
-      flex: 1;
     }
 
-    .edit {
+    span {
       color: #fff;
-      font-size: 30px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
     }
 
-    .avatar {
-      width: 40px;
-      height: 40px;
-      border: 1px solid #fff;
-      border-radius: 50%;
-      margin-left: 15px;
+    .a {
+      opacity: 0;
+      visibility: hidden;
     }
+  }
 
-    .user {
-      position: relative;
-
-      ul {
-        display: none;
-        position: absolute;
-        right: 0;
-        list-style: none;
-        border: 1px solid #eaeaea;
-        margin:0;
-        padding: 0;
-        background-color: #fff;
-
-        a {
-          text-decoration: none;
-          color: #333;
-          font-size: 12px;
-          display: block;
-          padding: 5px 10px;
-
-          &:hover {
-            background-color: #eaeaea;
-          }
+  @media (max-width: 768px) {
+    header.login {
+      .el-dropdown-link {
+        position: relative;
+        width: 30px;
+        height: 24px;
+        padding-top: 10px;
+        cursor: pointer;
+        span {
+          display: none;
         }
-
-      }
-
-      &:hover ul {
-        display: block;
+        .menu,
+        .menu::before,
+        .menu::after {
+          width: 30px;
+          height: 3px;
+          background-color: #fff;
+          border-radius: 3px;
+          position: absolute;
+        }
+        .menu::before,
+        .menu::after {
+          content: "";
+          display: block;
+        }
+        .menu::before {
+          top: -8px;
+        }
+        .menu::after {
+          bottom: -8px;
+        }
       }
     }
   }
+
 </style>

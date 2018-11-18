@@ -25,6 +25,7 @@
 
   #app {
     display: grid;
+    word-break: break-all;
     grid-template-columns: 12% auto 12%;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: 

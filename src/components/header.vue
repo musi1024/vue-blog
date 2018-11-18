@@ -27,10 +27,12 @@
           <el-dropdown-item>
             <router-link to="/my">我的博客</router-link>
           </el-dropdown-item>
-          <el-dropdown-item>
+          <el-dropdown-item divided=true>
             <router-link to="/create">新建博客</router-link>
           </el-dropdown-item>
-          <el-dropdown-item><a href="#" @click="onLogout">退出登录</a></el-dropdown-item>
+          <el-dropdown-item divided=true>
+            <a href="#" @click="onLogout">退出登录</a>
+          </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </template>

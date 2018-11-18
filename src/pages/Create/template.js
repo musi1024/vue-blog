@@ -7,7 +7,7 @@ export default {
       title: '',
       content: '',
       description: '',
-      atIndex: ''
+      atIndex: false,
     }
   },
   methods: {

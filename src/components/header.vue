@@ -133,6 +133,7 @@
         width: 30px;
         height: 24px;
         padding-top: 10px;
+        padding-right: 10px;
         cursor: pointer;
         span {
           display: none;

@@ -1,5 +1,6 @@
 import { mapActions } from 'vuex'
 
+
 export default {
   name: 'Register',
   data() {
@@ -9,12 +10,11 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['register', 'login']),
+    ...mapActions(['register']),
 
     onRegister() {
       this.register({username: this.username, password: this.password})
         .then(() => {
-          console.log(auth.getInfo())
           this.$router.push({path: '/'})
         })
     }

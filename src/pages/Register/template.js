@@ -9,11 +9,12 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['register']),
+    ...mapActions(['register', 'login']),
 
     onRegister() {
       this.register({username: this.username, password: this.password})
         .then(() => {
+          console.log(auth.getInfo())
           this.$router.push({path: '/'})
         })
     }

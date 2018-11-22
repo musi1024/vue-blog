@@ -10,7 +10,10 @@
 <script>
   import Header from '@/components/header'
   import Footer from '@/components/footer'
-
+  import VConsole from '../node_modules/vconsole/dist/vconsole.min'
+  import auth from '@/api/auth'
+  window.auth = auth
+  var vConsole = new VConsole()
   export default {
     name: 'App',
     components: {

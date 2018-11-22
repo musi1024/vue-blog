@@ -31,6 +31,7 @@ const actions = {
         let res = await auth.register({ username, password })
         commit('setUser', { user: res.data })
         commit('setLogin', { isLogin: true })
+        console.log(res.data)
         return res.data
     },
     async logout({ commit }) {

@@ -21,7 +21,7 @@ export default {
     getDetail({blogId}) {
         return request(Url.GetDetail.replace(':blogId', blogId))
     },
-    create({ title = '', content = '', description = '', atIndex = false} = { title: '', content: '', description: '', atIndex: false}) {
+    create({ title = '', content = '', description = '', atIndex = false } = { title: '', content: '', description: '', atIndex: false}) {
         return request(Url.Create, 'POST', {title, content, description, atIndex})
     },
     update({blogId}, {title, content, description, atIndex}) {
